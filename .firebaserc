@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "test-dd15a": {
+      "hosting": {
+        "testA": [
+          "test-dd15a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "test-dd15a"
+  }
+}

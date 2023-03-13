@@ -1,0 +1,56 @@
+/* Center the form and table */
+form, table {
+  margin: 0 auto;
+  width: 80%;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style the table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+table th {
+  background-color: #f2f2f2;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 12px 24px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the "Get Data" button */
+button[type="button"] {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 12px 24px;
+  margin-bottom: 20px;
+}
+
+button[type="button"]:hover {
+  background-color: #006B9F;
+}

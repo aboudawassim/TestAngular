@@ -1,0 +1,118 @@
+
+
+
+<!-- Form to add user data -->
+<div class="container">
+  <form [formGroup]="users" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="first-name">First name:</label>
+      <input type="text" id="first-name" formControlName="firstName" required [(ngModel)]="users.value.firstName">
+      <div *ngIf="users.get('firstName')?.invalid && users.get('firstName')?.touched" class="alert alert-danger">
+        First name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="last-name">Last name:</label>
+      <input type="text" id="last-name" formControlName="lastName" required [(ngModel)]="users.value.lastName">
+      <div *ngIf="users.get('lastName')?.invalid && users.get('lastName')?.touched" class="alert alert-danger">
+        Last name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="gender">Gender:</label>
+      <select id="gender" formControlName="gender" required [(ngModel)]="users.value.gender">
+        <option value=""></option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+      <div *ngIf="users.get('gender')?.invalid && users.get('gender')?.touched" class="alert alert-danger">
+        Gender is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="married">Married:</label>
+      <input type="checkbox" id="married" formControlName="married" [(ngModel)]="users.value.married">
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" required [(ngModel)]="users.value.email">
+      <div *ngIf="users.get('email')?.invalid && users.get('email')?.touched" class="alert alert-danger">
+        Please enter a valid email address.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" id="age" formControlName="age" required [(ngModel)]="users.value.age">
+      <div *ngIf="users.get('age')?.invalid && users.get('age')?.touched" class="alert alert-danger">
+        Age must be between 18 and 60.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of birth</label>
+      <input type="date" id="dob" formControlName="dob" required [(ngModel)]="users.value.dob">
+      <div *ngIf="users.get('dob')?.invalid && users.get('dob')?.touched" class="alert alert-danger">
+        Please enter a valid date of birth.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="country">Country:</label>
+      <select id="country" formControlName="country" required [(ngModel)]="users.value.country">
+        <option value=""></option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="England">England</option>
+        <option value="Singapore">Singapore</option>
+      </select>
+      <div *ngIf="users.controls['country'].invalid && (users.controls['country'].dirty || users.controls['country'].touched)">
+        <div *ngIf="users.controls['country'].errors?.['required']">Country is required.</div>
+      </div>
+      <br>
+
+      <button type="submit" >Add user</button>
+    </div>
+
+
+<!-- Table to display user data -->
+
+
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Gender</th>
+      <th>Married</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Country</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let person of people">
+      <td>{{person.firstName}}</td>
+      <td>{{person.lastName}}</td>
+      <td>{{person.gender}}</td>
+      <td>{{person.married ? 'Yes' : 'No'}}</td>
+      <td>{{person.email}}</td>
+      <td>{{person.age}}</td>
+      <td>{{person.country}}</td>
+      <td>
+        <button (click)="updateData(person.id)">Edit</button>
+        <button (click)="deleteData(person.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<!-- Modal to edit user data -->
+
